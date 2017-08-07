@@ -1,0 +1,23 @@
+version: '2'
+services:
+    web:
+        build: ./docker/revel
+        command: revel run revelSample
+        container_name: sample_revel
+        volumes:
+           - ./:/go/src/revelSample
+        ports:
+            - 9000:9000
+        links:
+            - elastic
+
+    elastic:
+        image: docker.elastic.co/elasticsearch/elasticsearch:5.5.0
+        container_name: sample_elastic
+        volumes:
+            - ./esdata:/usr/share/elasticsearch/data
+            - ./script/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+#            - ./script/jvm.options:/usr/share/elasticsearch/config/jvm.options
+            - ./script/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties
+        ports:
+            - 9200:9200

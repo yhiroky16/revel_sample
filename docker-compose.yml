@@ -4,8 +4,10 @@ services:
         build: ./docker/revel
         command: revel run revelSample
         container_name: sample_revel
+        environment:
+            - ELASTICSEARCH_URL=http://elastic:9200
         volumes:
-           - ./:/go/src/revelSample
+            - ./:/go/src/revelSample
         ports:
             - 9000:9000
         links:

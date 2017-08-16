@@ -15,6 +15,15 @@ func (_ tApp) Index(
 	return revel.MainRouter.Reverse("App.Index", args).URL
 }
 
+func (_ tApp) SearchResult(
+		name string,
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "name", name)
+	return revel.MainRouter.Reverse("App.SearchResult", args).URL
+}
+
 
 type tStatic struct {}
 var Static tStatic

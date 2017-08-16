@@ -9,7 +9,6 @@ RUN apt-get update && \
 RUN go get github.com/revel/revel && \
     go get github.com/revel/cmd/revel
 
-# change current dir
-RUN mkdir /go/src/AttendanceManage
+RUN go get -v ./...
 
 EXPOSE 9000

@@ -40,6 +40,18 @@ func main() {
 					},
 				},
 			},
+			&revel.MethodType{
+				Name: "SearchResult",
+				Args: []*revel.MethodArg{ 
+					&revel.MethodArg{Name: "name", Type: reflect.TypeOf((*string)(nil)) },
+				},
+				RenderArgNames: map[int][]string{ 
+					21: []string{ 
+						"inputData",
+						"results",
+					},
+				},
+			},
 			
 		})
 	

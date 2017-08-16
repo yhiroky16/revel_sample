@@ -1,0 +1,47 @@
+{{set . "title" "Home"}} {{template "header.html" .}}
+
+<div class="container">
+    <div class="row">
+        <p class="h2">社員情報検索</p>
+    </div>
+    <br> 
+    
+    {{template "search.html" .}}
+
+    <br>
+
+    <div class="row">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr class="info">
+                        <th>No.</th>
+                        <th>氏名</th>
+                        <th>所属</th>
+                        <th>担当・役職</th>
+                        <th>メールアドレス</th>
+                        <th>電話番号</th>
+                        <th>入社月</th>
+                        <th>誕生日</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{range .results}}
+                    <tr>
+                        <td>{{.Number}}</td>
+                        <td>{{.Name}}</td>
+                        <td>{{.Affilation}}</td>
+                        <td>{{.Responsible}}</td>
+                        <td>{{.Mail}}</td>
+                        <td>{{.Tel}}</td>
+                        <td>{{.Entry_month}}</td>
+                        <td>{{.Birthday}}</td>
+                    </tr>
+                    {{end}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{{template "footer.html" .}}

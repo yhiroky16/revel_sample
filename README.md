@@ -15,6 +15,8 @@ docker-compose up
 →エラーとならないこと（json形式の文字が表示される）
 
 # データ登録手順
+* indexの削除
+curl -XDELETE http://localhost:9200/employee_info
 * indexの作成  
 curl -XPUT http://localhost:9200/employee_info
 * データ定義（types）の登録  

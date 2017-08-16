@@ -1,13 +1,14 @@
 {
     "info": {
         "properties": {
-            "name": { "type": "string" },
-            "affiliation": { "type": "string" },
-            "responsible": { "type": "string" },
-            "mail": { "type": "string" },
-            "tel": { "type": "string" },
-            "entry_month": { "type": "string" },
-			"birthday": { "type": "string" }
+            "Number": { "type": "long" },
+            "Name": { "type": "string" },
+            "Affiliation": { "type": "string" },
+            "Responsible": { "type": "string" },
+            "Mail": { "type": "string" },
+            "Tel": { "type": "string" },
+            "Entry_month": { "type": "string" },
+			"Birthday": { "type": "string" }
         }
     }
 }

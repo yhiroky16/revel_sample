@@ -22,12 +22,13 @@ func Search(name string) ([]*models.ViewSearchResult, error) {
 	// クエリ発行
 	var svc *elastic.ScrollService
 	if len(name) != 0 {
-		query := elastic.NewTermQuery("Name", name)
+		query := elastic.NewQueryStringQuery(`"` + name + `"`)
+		query = query.DefaultField("Name")
 		svc = client.Scroll().
 			Index("employee_info").
 			Type("info").
 			Query(query).
-			Sort("number", true).
+			Sort("Number", true).
 			Size(5000)
 	} else {
 		svc = client.Scroll().

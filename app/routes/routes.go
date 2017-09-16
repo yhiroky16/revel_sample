@@ -4,16 +4,14 @@ package routes
 import "github.com/revel/revel"
 
 
+type tApiDataController struct {}
+var ApiDataController tApiDataController
+
+
+
 type tApp struct {}
 var App tApp
 
-
-func (_ tApp) Index(
-		) string {
-	args := make(map[string]string)
-	
-	return revel.MainRouter.Reverse("App.Index", args).URL
-}
 
 func (_ tApp) SearchResult(
 		name string,
@@ -22,6 +20,13 @@ func (_ tApp) SearchResult(
 	
 	revel.Unbind(args, "name", name)
 	return revel.MainRouter.Reverse("App.SearchResult", args).URL
+}
+
+func (_ tApp) Index(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("App.Index", args).URL
 }
 
 
@@ -90,6 +95,20 @@ func (_ tTestRunner) List(
 	args := make(map[string]string)
 	
 	return revel.MainRouter.Reverse("TestRunner.List", args).URL
+}
+
+
+type tApiData struct {}
+var ApiData tApiData
+
+
+func (_ tApiData) Show(
+		id int,
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "id", id)
+	return revel.MainRouter.Reverse("ApiData.Show", args).URL
 }
 
 
